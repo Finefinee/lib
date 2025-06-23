@@ -16,6 +16,6 @@ public class BookEntity {
     private String bookID;
     private String bookName;
     private String author;
-    private Boolean isLoaned;
+    private boolean isLoaned;
 }
 
