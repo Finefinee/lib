@@ -18,3 +18,4 @@ public class BookEntity {
     private String author;
     private Boolean isLoaned;
 }
+
