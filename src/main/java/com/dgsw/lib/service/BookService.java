@@ -67,6 +67,18 @@ public class BookService {
                 ).toList();
     }
 
+    public List<BookResponse> getNotLoanedBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(entity -> new BookResponse(
+                                entity.getBookID(),
+                                entity.getBookName(),
+                                entity.getAuthor(),
+                                entity.isLoaned()
+                        )
+                ).filter(en -> !en.isLoaned()).toList();
+    }
+
     public boolean editBook(EditBookRequest request) {
         Optional<BookEntity> book = bookRepository.findById(request.getId());
         if (book.isPresent()) {

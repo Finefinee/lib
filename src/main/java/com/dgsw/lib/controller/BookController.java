@@ -51,6 +51,11 @@ public class BookController {
         return bookService.getBooks();
     }
 
+    @GetMapping("/books/not-loaned")
+    public List<BookResponse> getNotLoanedBooks() {
+        return bookService.getNotLoanedBooks();
+    }
+
     @PutMapping("/book")
     public ResponseDTO editBook(@RequestBody @Valid EditBookRequest request) {
         boolean edited = bookService.editBook(request);
