@@ -2,15 +2,16 @@ package com.dgsw.lib.controller;
 
 import com.dgsw.lib.dto.request.AddBookRequest;
 import com.dgsw.lib.dto.request.BorrowRequest;
+import com.dgsw.lib.dto.request.EditBookRequest;
 import com.dgsw.lib.dto.request.ReturnRequest;
+import com.dgsw.lib.dto.response.BookResponse;
 import com.dgsw.lib.dto.response.ResponseDTO;
 import com.dgsw.lib.service.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -43,6 +44,23 @@ public class BookController {
         } else {
             return new ResponseDTO("도서가 이미 대출 중이거나 존재하지 않습니다.");
         }
+    }
+
+    @GetMapping("/books")
+    public List<BookResponse> getAllBooks() {
+        return bookService.getBooks();
+    }
+
+    @PutMapping("/book")
+    public ResponseDTO editBook(@RequestBody @Valid EditBookRequest request) {
+        boolean edited = bookService.editBook(request);
+        return new ResponseDTO(edited ? "ok" : "failed");
+    }
+
+    @DeleteMapping("/book/{bookId}")
+    public ResponseDTO deleteBook(@PathVariable String bookId) {
+        boolean deleted = bookService.deleteBook(bookId);
+        return new ResponseDTO(deleted ? "ok" : "failed");
     }
 
 }
