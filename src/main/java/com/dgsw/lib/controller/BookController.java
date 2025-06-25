@@ -21,7 +21,7 @@ public class BookController {
     @PostMapping("/book")
     public ResponseDTO addBookRequest(@RequestBody AddBookRequest addBookRequest){
         boolean created = bookService.addBookRequest(addBookRequest);
-        return new ResponseDTO(created ? "ok" : "fail");
+        return new ResponseDTO(created ? "ok" : "도서 아이디가 이미 존재하거나 생성에 실패하였습니다.");
     }
 
     @PatchMapping("/return")

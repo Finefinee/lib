@@ -8,7 +8,6 @@ import com.dgsw.lib.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +17,10 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public boolean addBookRequest(AddBookRequest addBookRequest){
+        if (bookRepository.existsById(addBookRequest.getBookID())) {
+            return false;
+        }
+
         BookEntity bookEntity = new BookEntity();
         bookEntity.setBookID(addBookRequest.getBookID());
         bookEntity.setBookName(addBookRequest.getBookName());
