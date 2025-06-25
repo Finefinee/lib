@@ -11,5 +11,5 @@ public class EditBookRequest {
     private String id;
     private String title;
     private String author;
-    private boolean isLoaned;
+    private boolean loaned;
 }
