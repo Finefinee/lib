@@ -13,5 +13,4 @@ public class AddBookRequest {
     private String bookID;
     private String bookName;
     private String author;
-    private Boolean isLoaned;
 }

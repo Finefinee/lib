@@ -22,7 +22,7 @@ public class BookService {
         bookEntity.setBookID(addBookRequest.getBookID());
         bookEntity.setBookName(addBookRequest.getBookName());
         bookEntity.setAuthor(addBookRequest.getAuthor());
-        bookEntity.setLoaned(addBookRequest.getIsLoaned());
+        bookEntity.setLoaned(false);
         BookEntity saved = bookRepository.save(bookEntity);
         return saved != null;
     }
