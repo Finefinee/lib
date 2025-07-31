@@ -17,8 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookController {
 
-    // @Valid 어노테이션이 붙은 dto 클래스에 @NotBlank 등과 같은 코드가 없어서 추가함
-
     private final BookService bookService;
 
     @PostMapping("/book")
