@@ -1,6 +1,6 @@
 package com.dgsw.lib.dto.request;
 
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,14 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class BorrowRequest {
-    @Id
+    @NotBlank(message = "도서 ID는 필수입니다")
     private String bookId;
-
-    public String getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
-    }
 }

@@ -27,7 +27,7 @@ public class BookService {
         bookEntity.setAuthor(addBookRequest.getAuthor());
         bookEntity.setLoaned(false);
         BookEntity saved = bookRepository.save(bookEntity);
-        return saved != null;
+        return true;
     }
 
     public boolean returnBook(String bookId){

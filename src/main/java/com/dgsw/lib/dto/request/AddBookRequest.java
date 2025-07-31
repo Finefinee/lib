@@ -1,6 +1,5 @@
 package com.dgsw.lib.dto.request;
 
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class AddBookRequest {
-    @Id
     private String bookID;
     private String bookName;
     private String author;
